@@ -1,0 +1,24 @@
+.container {
+    max-width: 1280px;
+    padding: 24px;
+    margin: 0 auto;
+    background-color: #121212;
+    align-content: center;
+    background-color: #121212;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+
+  .dropdown {
+    font-weight: 700;
+    font-size: 14px;
+    border: 0px;
+    border-radius: 500px;
+    cursor: pointer;
+    user-select: none;
+    background-color: #535bf2;
+    min-block-size: 40px;
+    padding-inline: 32px;
+  }

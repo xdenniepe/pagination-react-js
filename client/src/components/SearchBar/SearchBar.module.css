@@ -1,0 +1,121 @@
+.header {
+  width: 100%;
+  background-color: #121212;
+  padding: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  padding: 6px 48px;
+  width: 384px;
+  height: 40px;
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 500px;
+  user-select: none;
+  border: 0;
+  font-size: 14px;
+  display: inline-block;
+  user-select: none;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.searchWrapper {
+  display: block;
+  width: auto;
+}
+
+.inputWrapper {
+  display: inline-block;
+  position: relative;
+}
+
+.searchButton {
+  font-weight: 700;
+  font-size: 14px;
+  border: 0px;
+  border-radius: 500px;
+  cursor: pointer;
+  user-select: none;
+  background-color: #535bf2;
+  min-block-size: 40px;
+  padding-block: 8px;
+  padding-inline: 32px;
+  margin-left: 12px;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.button:active {
+  opacity: 0.8;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px 12px;
+}
+
+.clearIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px 12px;
+  background-color: transparent;
+  border: 0;
+}
+
+.clearIcon:focus,
+.clearIcon:active {
+  outline: none;
+}
+
+.fieldsWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 18px;
+}
+
+.chip {
+  display: inline-flex;
+  vertical-align: middle;
+  border-radius: 32px;
+  padding: 4px 12px;
+  border: 0;
+  outline: none;
+  margin-right: 6px;
+  font-size: 14px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.07);
+  cursor: pointer;
+}
+
+.chip.activeChip {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+}
+
+.chip:focus {
+  outline: none;
+}
+
+.chip:hover {
+  opacity: 0.8;
+}
