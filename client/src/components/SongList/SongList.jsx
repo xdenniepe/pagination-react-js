@@ -3,7 +3,7 @@ import Song from "../Song/Song";
 import styles from "./SongList.module.css";
 
 const SongList = (props) => {
-  const { songs, page, rowsPerPage } = props;
+  const { songs } = props;
 
   return (
     <section className={styles.container}>
@@ -23,8 +23,8 @@ const SongList = (props) => {
             </tr>
           </thead>
           <tbody>
-            {songs.map((song, index) => (
-                <Song key={song.id} index={(index + 1) + ((page - 1)  * rowsPerPage)} song={song} />
+            {songs.map((song, _) => (
+                <Song key={song.id} index={song.index} song={song} />
             ))}
           </tbody>
         </table>

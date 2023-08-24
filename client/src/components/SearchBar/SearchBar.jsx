@@ -66,7 +66,7 @@ function SearchBar(props) {
                   setActiveField(({ value }) =>
                     value === field.value ? {} : field
                   )
-                  if (searchTerm != "") { onSearch(activeField.value) }
+                  if (searchTerm !== "") { onSearch(activeField.value) }
                 }
                 }
               >

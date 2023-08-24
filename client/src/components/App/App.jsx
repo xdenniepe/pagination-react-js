@@ -36,7 +36,15 @@ const App = () => {
         },
       })
       .then((res) => {
-        setSongs(res.data.results);
+        const newSongs = res.data.results.map((songs, index) => {
+          const { title, album, artist, year, genre, coverImage, duration } = songs;
+
+          return ({
+            index: (index + 1) + ((page - 1)  * rowsPerPage),
+            title, album, artist, year, genre, coverImage, duration
+          })
+        })
+        setSongs(newSongs);
         setTotalPage(Math.ceil(res.data.totalResults / rowsPerPage));
       });
   };
@@ -60,7 +68,7 @@ const App = () => {
         setPage={setPage}
         setSearchTerm={setSearchTerm}
       />
-      <SongList songs={songs} page={page} rowsPerPage={rowsPerPage} />
+      <SongList songs={songs} />
       <CustomPagination
         handleChangePage={handleChangePage}
         handleRowsPerPageChange={handleRowsPerPageChange}
