@@ -16,14 +16,20 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [activeField, setActiveField] = useState({});
 
-  // USEEFFECT: to trigger state change onClick search
   useEffect(() => {
-    handleChangePage(1);
-  }, [rowsPerPage]);
+    let delayDebounce;
 
-  useEffect(() => {
-    handleSearch(activeField.value);
-  }, [page]);
+    if (searchTerm === '') {
+      handleSearch(activeField.value);
+    } else {
+      delayDebounce = setTimeout(() => {
+        handleSearch(activeField.value);
+      }, 1000);
+    }
+    return () => {
+      delayDebounce && clearTimeout(delayDebounce)
+    }
+  }, [page, rowsPerPage, searchTerm]);
 
   const handleSearch = (field) => {
     axios
