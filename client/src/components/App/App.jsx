@@ -9,36 +9,26 @@ import styles from "./App.module.css";
 const axios = Axios.create({ baseURL: "http://localhost:3000" });
 
 const App = () => {
-  const [songs, setSongs] = useState([]);
+  const [songs, setSongs]             = useState([]);
   const [rowsPerPage, setRowsPerPage] = useState(25);
-  const [page, setPage] = useState(1);
-  const [totalPage, setTotalPage] = useState(0);
-  const [searchTerm, setSearchTerm] = useState("");
+  const [page, setPage]               = useState(1);
+  const [totalPage, setTotalPage]     = useState(0);
+  const [searchTerm, setSearchTerm]   = useState("");
   const [activeField, setActiveField] = useState({});
 
   useEffect(() => {
-    let delayDebounce;
-
-    if (searchTerm === '') {
-      handleSearch(activeField.value);
-    } else {
-      delayDebounce = setTimeout(() => {
-        handleSearch(activeField.value);
-      }, 1000);
-    }
-    return () => {
-      delayDebounce && clearTimeout(delayDebounce)
-    }
-  }, [page, rowsPerPage, searchTerm]);
+    handleSearch(activeField.value);
+  }, [page])
+  
 
   const handleSearch = (field) => {
     axios
       .get("/songs", {
         params: {
-          q: searchTerm,
+          q    : searchTerm,
           field: field || "",
           limit: rowsPerPage,
-          page: page,
+          page : page,
         },
       })
       .then((res) => {
@@ -57,11 +47,11 @@ const App = () => {
 
   const handleChangePage = (newPage) => {
     setPage(newPage);
-    handleSearch(activeField.value);
   };
 
   const handleRowsPerPageChange = (newRowsPerPage) => {
     setRowsPerPage(newRowsPerPage);
+    setPage(1);
   };
 
   return (
